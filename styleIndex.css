@@ -1,0 +1,33 @@
+body{
+    background-image: url(Img/shopping.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+     
+}
+
+.box {
+    scale: text-center;
+    padding-left: 100px;
+    padding-right: 100px;
+    padding-bottom: 20px;
+}
+
+.gentium-book-plus-bold{
+    font-family: "Roboto", sans-serif;
+    font-weight: 700;
+    font-style: normal;
+}
+
+.result-section {
+    margin: 20px 0;
+    padding: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.book-item {
+    margin: 10px 0;
+    padding: 10px;
+    background-color: #f5f5f5;
+}

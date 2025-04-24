@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en">
+  <!--//////////////////////////////head//////////////////////////////////-->
+<head>
+    <meta charset="UTF-8"/>
+
+    <link rel="stylesheet" href="style.css"> <!-- Connection to the css style -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css"
+    rel="stylesheet" integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7"
+    crossorigin="anonymous"/> <!-- Connection with bootstrap -->
+
+    <title>Buying clothes</title> <!-- Title pag -->
+
+</head>
+
+  <!--/////////////////////////////body///////////////////////////////////-->
+<body>
+    <!-- menu -->
+    <nav class="navbar bg-body-tertiary" data-bs-theme="dark">
+      <form class="container-fluid justify-content-start">
+        <a class="navbar-brand" href="#">
+          <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-bag-heart-fill" viewBox="0 0 20 20">
+            <path d="M11.5 4v-.5a3.5 3.5 0 1 0-7 0V4H1v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V4zM8 1a2.5 2.5 0 0 1 2.5 2.5V4h-5v-.5A2.5 2.5 0 0 1 8 1m0 6.993c1.664-1.711 5.825 1.283 0 5.132-5.825-3.85-1.664-6.843 0-5.132"/>
+          </svg> <!-- Icon -->
+        </a>
+        <a class="navbar-brand">Generic store</a> <!-- Title -->
+        <a href="index.html" class="btn btn-sm btn-outline-secondary"> <!-- Link -->
+          Ver Productos
+        </a>
+      </form>
+    </nav>
+    <!-- menu -->
+      
+    <!-- Title -->
+    <div class="box">
+        <div class="container-fluid pt-3">
+          <div class="row">
+            <h1 class="gentium-book-plus-bold">Consultar Orden</h1>
+          </div>
+        </div>
+    </div>
+    <!-- Title -->
+      
+    <!-- Simple Query -->
+    <div class="box">
+      <div class="container-fluid pt-3 bg-body rounded shadow-sm">
+          <div class="row"> <!-- Title: Where Query -->
+
+              <div class="col-1 text-center"> <!-- Icon -->
+                <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-card-checklist" viewBox="0 0 16 16">
+                  <path d="M14.5 3a.5.5 0 0 1 .5.5v9a.5.5 0 0 1-.5.5h-13a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5zm-13-1A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h13a1.5 1.5 0 0 0 1.5-1.5v-9A1.5 1.5 0 0 0 14.5 2z"/>
+                  <path d="M7 5.5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5m-1.496-.854a.5.5 0 0 1 0 .708l-1.5 1.5a.5.5 0 0 1-.708 0l-.5-.5a.5.5 0 1 1 .708-.708l.146.147 1.146-1.147a.5.5 0 0 1 .708 0M7 9.5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5m-1.496-.854a.5.5 0 0 1 0 .708l-1.5 1.5a.5.5 0 0 1-.708 0l-.5-.5a.5.5 0 0 1 .708-.708l.146.147 1.146-1.147a.5.5 0 0 1 .708 0"/>
+                </svg>
+              </div>
+
+              <div class="col-11"> <!-- Title -->
+                <h2 class="gentium-book-plus-bold">1. Where Query</h2>
+              </div>
+          </div>
+
+          <div class="row pt-3 text-center"> <!-- enter value -->
+
+              <div class="col ps-5">
+                <label for="column" class="px-2">Column:</label>
+                <input type="text" id="column" placeholder="year"/>
+  
+                <label for="comparator" class="px-2">Comparator:</label>
+                <input type="text" id="comparator" placeholder="==, >, <, etc"/>
+  
+                <label for="value" class="px-2">Value:</label>
+                <input type="text" id="value" placeholder="Ej: 2000"/>
+              </div>
+
+          </div>
+
+          <div class="row pt-4"> <!-- Button -->
+
+            <div class="col pb-3 text-center">
+              <button id="whereQueryBtn" class="btn btn-outline-secondary"> <!-- Button text -->
+                Run this faking query
+              </button>
+            </div>
+
+          </div>  
+
+      </div>
+    </div>
+    <!-- Simple Query -->
+
+    <!-- Queries (Multiple) -->
+    <div class="box">
+    <div class="container-fluid pt-3 bg-body rounded shadow-sm">
+
+        <div class="row"> <!-- Title: Where Queries (multiple) -->
+
+            <div class="col-1 text-center"> <!-- Icon -->
+              <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-card-checklist" viewBox="0 0 16 16">
+                <path d="M14.5 3a.5.5 0 0 1 .5.5v9a.5.5 0 0 1-.5.5h-13a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5zm-13-1A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h13a1.5 1.5 0 0 0 1.5-1.5v-9A1.5 1.5 0 0 0 14.5 2z"/>
+                <path d="M7 5.5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5m-1.496-.854a.5.5 0 0 1 0 .708l-1.5 1.5a.5.5 0 0 1-.708 0l-.5-.5a.5.5 0 1 1 .708-.708l.146.147 1.146-1.147a.5.5 0 0 1 .708 0M7 9.5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5m-1.496-.854a.5.5 0 0 1 0 .708l-1.5 1.5a.5.5 0 0 1-.708 0l-.5-.5a.5.5 0 0 1 .708-.708l.146.147 1.146-1.147a.5.5 0 0 1 .708 0"/>
+              </svg>
+            </div>
+
+            <div class="col-11"> <!-- Title -->
+              <h2 class="gentium-book-plus-bold">2. Where Queries (multiple)</h2>
+            <p>Enter your search parameters here</p>
+            </div>
+        </div>
+
+        <div class="row"> <!-- enter value -->
+
+          <div id="filtersContainer">
+            <div class="filter pb-2">
+              <input type="text" placeholder="Column" class="filterColumn" />
+              <input type="text" placeholder="Comparator (==, >, <, etc)" class="filterComparator"/>
+              <input type="text" placeholder="Value" class="filterValue" />
+            </div>
+          </div> 
+
+        </div>
+
+        <div class="row pt-4"> <!-- Button -->
+
+          <div class="col pb-3 text-end">
+            <button id="addFilterBtn" class="btn btn-secondary"> <!-- Button text -->
+              Add Filter
+            </button>
+          </div>
+
+          <div class="col pb-3 text-start">
+            <button id="whereQueryBtn" class="btn btn-outline-secondary"> <!-- Button text -->
+              Run this faking query
+            </button>
+          </div>
+
+        </div>  
+
+    </div>
+    </div>
+    <!-- Queries (Multiple) -->
+
+    <!-- Limits -->
+    <div class="box">
+      <div class="container-fluid pt-3 bg-body rounded shadow-sm">
+          <div class="row"> <!-- Title: Order + Limit -->
+
+              <div class="col-1 text-center"> <!-- Icon -->
+                <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-card-list" viewBox="0 0 16 16">
+                  <path d="M14.5 3a.5.5 0 0 1 .5.5v9a.5.5 0 0 1-.5.5h-13a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5zm-13-1A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h13a1.5 1.5 0 0 0 1.5-1.5v-9A1.5 1.5 0 0 0 14.5 2z"/>
+                  <path d="M5 8a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7A.5.5 0 0 1 5 8m0-2.5a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5m0 5a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5m-1-5a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0M4 8a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0m0 2.5a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0"/>
+                </svg>
+              </div>
+
+              <div class="col-11"> <!-- Title -->
+                <h2 class="gentium-book-plus-bold ">3. Order + Limit</h2>
+              </div>
+          </div>
+
+          <div class="row pt-3"> <!-- enter value -->
+            <div class="col ps-5 text-center">
+
+              <label for="orderColumn" class="px-2">Order by:</label>
+              <input type="text" id="orderColumn" placeholder="year"/>
+
+              <label for="limitNum" class="px-2">Limit:</label>
+              <input type="number" id="limitNum" value="5"/>
+
+              <label for="orderDir" class="px-2">Direction:</label>
+              <select id="orderDir">
+                <option value="asc">Asc</option>
+                <option value="desc">Desc</option>
+              </select>
+
+            </div>
+          </div>
+
+          <div class="row pt-4"> <!-- Button -->
+
+            <div class="col pb-3 text-center">
+              <button id="orderLimitQueryBtn" class="btn btn-outline-secondary"> <!-- Button Text-->
+                Run Order + Limit Query
+              </button>
+            </div>
+
+          </div>  
+
+      </div>
+    </div>
+    <!-- Limits -->
+
+    <!-- Prefix -->
+    <div class="box">
+      <div class="container-fluid pt-3 bg-body rounded shadow-sm">
+          <div class="row"> <!-- Title: Order + Limit -->
+
+              <div class="col-1 text-center"> <!-- Icon -->
+                <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-card-list" viewBox="0 0 16 16">
+                  <path d="M14.5 3a.5.5 0 0 1 .5.5v9a.5.5 0 0 1-.5.5h-13a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5zm-13-1A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h13a1.5 1.5 0 0 0 1.5-1.5v-9A1.5 1.5 0 0 0 14.5 2z"/>
+                  <path d="M5 8a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7A.5.5 0 0 1 5 8m0-2.5a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5m0 5a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5m-1-5a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0M4 8a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0m0 2.5a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0"/>
+                </svg>
+              </div>
+
+              <div class="col-11"> <!-- Title -->
+                <h2 class="gentium-book-plus-bold">4. Prefix Search</h2>
+              </div>
+          </div>
+
+          <div class="row pt-3"> <!-- enter value -->
+            <div class="col ps-5 text-center">
+
+              <label for="prefixColumn">Column:</label>
+              <input type="text" id="prefixColumn" placeholder="title" />
+  
+              <label for="prefixValue">Starts with:</label>
+              <input type="text" id="prefixValue" placeholder="Harry" />
+
+            </div>
+          </div>
+
+          <div class="row pt-4"> <!-- Button -->
+
+            <div class="col pb-3 text-center">
+              <button id="prefixQueryBtn" class="btn btn-outline-secondary">  <!-- Button Text -->
+                Run Prefix Search
+              </button>
+            </div>
+
+          </div>  
+
+      </div>
+    </div>
+    <!-- Prefix -->
+    
+    <!-- results -->
+    <div class="box">
+      <div class="container-fluid">
+
+        <div class="row text-center">
+
+            <div class="col align-self-center">
+          
+            <h2>Results</h2> <!-- Title -->
+  
+            <table id="resultsTable" class="table table-bordered"> <!-- table -->
+  
+              <thead>
+                <tr class="table-light">
+                  <th>Doc ID</th>
+                  <th>Order ID</th>
+                  <th>Status</th>
+                  <th>Tracking #</th>
+                  <th>User Name</th>
+                  <th># Products</th>
+                </tr>
+              </thead>
+              
+  
+              <tbody id="resultsBody" class="table-group-divider"> <!-- table results -->
+                <!-- Results will be inserted here -->
+              </tbody>
+            </table>
+  
+            </div>
+
+        </div>
+
+    </div>
+    </div>
+    <!-- results -->
+
+    <!--///////////////////////////////////////////////////////scripts///////////////////////////////////////////////////////// -->
+    <!-- module -->
+    <script type="module">
+      import { FirestoreQuery } from "./modules/firestore_query.js"; // importa clase 
+
+      const firestore = new FirestoreQuery("proyectoDB"); // crea instancianla coleccion
+
+      const displayResults = (docs) => { // funcion mostrar resultados tabla
+  const body = document.getElementById("resultsBody");   // obtiene cuerpo tabla
+  body.innerHTML = "";  // limpia la tabla
+
+  if (!docs || docs.length === 0) {
+    const row = body.insertRow();
+    const cell = row.insertCell();
+    cell.colSpan = 6;
+    cell.textContent = "No orders found.";
+    return;
+    // si no hay resultados,  mensaje fila
+  }
+
+  docs.forEach((doc) => {
+    const row = body.insertRow(); // agrega fila documento
+    row.insertCell().textContent = doc.docId || doc.id;
+    row.insertCell().textContent = doc.orderId || "";
+    row.insertCell().textContent = doc.status || "";
+    row.insertCell().textContent = doc.trackingNumber || "";
+    row.insertCell().textContent = doc.user?.name || "";
+    row.insertCell().textContent = doc.products?.length || 0;
+    // agrega celdas datos  documento
+  });
+};
+
+
+      document.getElementById("addFilterBtn").addEventListener("click", () => {
+        console.log("Add field clicked");  // muestra mensaje al hacer clic
+        const container = document.getElementById("filtersContainer"); // obtiene contenedor filtros
+        const div = document.createElement("div");
+        div.classList.add("filter"); // crea div para nuevo filtro
+
+        div.innerHTML = `
+                <input type="text" placeholder="Column" class="filterColumn">
+                <input type="text" placeholder="Comparator (==, >, <, etc)" class="filterComparator">
+                <input type="text" placeholder="Value" class="filterValue">
+                `;
+                  // agrega inputs filtro
+
+        container.appendChild(div);   // añade nuevo filtro 
+      });
+
+      // Where Query
+      document
+        .getElementById("whereQueryBtn")
+        .addEventListener("click", async () => {
+          const column = document.getElementById("column").value.trim();
+          const comparator = document.getElementById("comparator").value.trim();
+          const valueRaw = document.getElementById("value").value.trim();
+          const value = isNaN(valueRaw) ? valueRaw : Number(valueRaw);    // obtiene valores inputs para consulta where simple
+          const docs = await firestore.whereQuery(column, comparator, value); //consulta where con parametros
+          displayResults(docs);   // muestra los resultados
+        });
+
+      // Multi
+      document
+        .getElementById("multiWhereQueryBtn")
+        .addEventListener("click", async () => {
+          const filterDivs = document.querySelectorAll(
+            "#filtersContainer .filter"
+          );
+          const filters = [];   // obtiene todos filtros
+
+          filterDivs.forEach((div) => {
+            const column = div.querySelector(".filterColumn").value.trim();
+            const comparison = div
+              .querySelector(".filterComparator")
+              .value.trim();
+            const valueRaw = div.querySelector(".filterValue").value.trim();
+
+            if (column && comparison) {
+              const value = isNaN(valueRaw) ? valueRaw : Number(valueRaw);
+              filters.push({ column, comparison, value });
+               // agrega cada filtro al array si tiene datos validos
+            }
+          });
+
+          const docs = await firestore.combinedQuery(filters);   //  consulta combinada todos los filtros
+          displayResults(docs);  // muestra los resultados
+        });
+
+      // Order + Limit Query
+      document
+        .getElementById("orderLimitQueryBtn")
+        .addEventListener("click", async () => {
+          const column = document.getElementById("orderColumn").value.trim();
+          const direction = document.getElementById("orderDir").value;
+          const limitNum = parseInt(
+            document.getElementById("limitNum").value,
+            10
+          );
+
+           // obtiene valores ordenar y limitar resultados
+          const docs = await firestore.combinedQuery(
+            [],
+            { column, direction },
+            limitNum
+          );
+            // realiza consulta ordenada limite
+          displayResults(docs);   // muestra resultados
+        });
+
+      // Prefix Search
+      document
+        .getElementById("prefixQueryBtn")
+        .addEventListener("click", async () => {
+          const column = document.getElementById("prefixColumn").value.trim();
+          const prefix = document.getElementById("prefixValue").value.trim();
+           // obtiene valores busqueda por prefijo
+          const docs = await firestore.prefixSearch(column, prefix);
+            // realiza  consulta por coincidencia de prefijo
+          displayResults(docs);// muestra los resultados
+        });
+    </script>
+    <br />
+    <!-- module -->
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq"
+      crossorigin="anonymous">
+    </script>
+</body>
+</html>
