@@ -36,7 +36,8 @@
         <div class="container-fluid pt-3">
           <div class="row">
             <h1 class="gentium-book-plus-bold">Introducir Pedido</h1>
-          </div>
+        </div>
+        </form>
         </div>
     </div>
     <!-- Title -->
@@ -64,6 +65,10 @@
 
     <!-- Add to Database -->
      <div class="box">
+        <!-- Product Container -->
+        <div id="product-container" class="container-fluid pt-3 bg-body rounded shadow-sm">
+            <!-- This container will display the products -->
+        </div>
 
         <div class="container-fluid pt-3 bg-body rounded shadow-sm">
             <div class="row"> <!-- Title: Add book to the database -->
@@ -129,8 +134,9 @@
   <!--/////////////////////////////order///////////////////////////////////--> 
             <div class="row">
                 <div class="col pb-4">
-                    <h5 class="pt-4">Products</h5>
-                    <div id="productsContainer">
+                    <form id="addProductForm">
+                        <div id="productsContainer">
+                            <div class="product-entry mb-4">
                         <div class="product-entry mb-4">
                             <label for="productName">Product Name:</label>
                             <input type="text" class="productName" placeholder="Ej: Camiseta Blanca">
@@ -207,10 +213,15 @@
     <script type="module">
         import { FirestoreService } from './modules/firestore_service.js';     // importa clase firestoreservice 
 
-        const firestore = new FirestoreService("proyectoDB");  // crea instancia servicio coleccion 
+        const firestore = new FirestoreService("order");  // crea instancia servicio coleccion 
+        const productService = new FirestoreService("product");
 
         function displayOrders(containerId, orders) {
     const container = document.getElementById(containerId); // obtiene contenedor por id
+    if (!container) {
+        console.error(`Element with ID "${containerId}" not found.`);
+        return;
+    }
     container.innerHTML = ''; // limpia contenido anterior
 
     if (orders.length === 0) {
@@ -218,6 +229,9 @@
         return;
          // si no ordenes, mensaje
     }
+
+
+    
     
     //////////////////////// show all orders button ///////////////////
 
@@ -250,10 +264,57 @@
 
             <hr>
         `;
-        container.appendChild(orderDiv); // agrega div al contenedor
+        container.appendChild(orderDiv); 
     });
 }
 
+async function displayProducts(containerId) {
+    const container = document.getElementById(containerId);
+    if (!container) {
+        console.error(`Element with ID "${containerId}" not found.`);
+        return;
+    }
+    container.innerHTML = '';
+
+    const products = await productService.getAll();
+    if (!products || products.length === 0) {
+      container.innerHTML = '<p>No products found</p>';
+      return;
+    }
+
+    container.innerHTML = `
+      <h5>Products</h5>
+      <ul>
+        ${products.map(product => `
+          <li>
+            <strong>${product.name}</strong> - ${product.description} <br>
+            Color: ${product.color}, Price: $${product.price}, Stock: ${product.stock}
+          </li>
+        `).join('')}
+      </ul>
+    `;
+  }
+
+
+  document.getElementById('addProductForm').addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const form = e.target;
+    const newProduct = {
+      name: form.name.value,
+      description: form.description.value,
+      color: form.color.value,
+      price: parseFloat(form.price.value),
+      stock: parseInt(form.stock.value),
+    };
+    await productService.add(newProduct);
+    form.reset();
+    displayProducts('product-container');
+  });
+
+
+  window.addEventListener('DOMContentLoaded', () => {
+    displayProducts('product-container');
+  });
 
 
 function displayOrderDetails(containerId, order) {
@@ -281,12 +342,22 @@ function displayOrderDetails(containerId, order) {
 
             <h4>Products</h4>
             <ul>
-                ${order.products.map(product => `
-                    <li>
-                        <strong>${product.name}</strong> - ${product.description} <br>
-                        Color: ${product.color}, Price: $${product.price}, Stock: ${product.stock}
-                    </li>
-                `).join('')}
+                ${order.products.map(async product => {
+                    // Send product data to the "product" collection in Firebase
+                    await productService.add({
+                        name: product.name,
+                        description: product.description,
+                        color: product.color,
+                        price: product.price,
+                        stock: product.stock
+                    });
+                    return `
+                        <li>
+                            <strong>${product.name}</strong> - ${product.description} <br>
+                            Color: ${product.color}, Price: $${product.price}, Stock: ${product.stock}
+                        </li>
+                    `;
+                }).join('')}
             </ul>
 
             <small>Document ID: ${order.id || 'N/A'}</small>
@@ -341,8 +412,8 @@ document.getElementById("addDocBtn").addEventListener("click", async () => {
         orderId,
         status,
         trackingNumber,
-        purchaseDate: firebase.firestore.Timestamp.fromDate(purchaseDate),
-        shippingDate: firebase.firestore.Timestamp.fromDate(shippingDate),
+        purchaseDate: (purchaseDate.toString()),
+        shippingDate: (shippingDate.toString()),
         user,
         products
         // construye el objeto de datos a guardar
